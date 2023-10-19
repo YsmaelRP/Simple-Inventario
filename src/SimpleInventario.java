@@ -2,7 +2,7 @@ import java.security.PublicKey;
 import java.util.Scanner;
 
 public class SimpleInventario {
-    public static void agregarinventario(String s) {
+    public static void agregarArticulo(String s) {
         System.out.println("Agregar un Articulo: ");
         if (s.length() > 4) {
             System.out.printf("Articulo agregado Exitosamente");

@@ -29,16 +29,31 @@ public class SimpleInventario {
         }
     }
 
-    public static String ObtenerPrecioArticulo(String articulo, double precio) {
-        double random = (Math.random() * 5000) + 100;
-        if (articulo.startsWith("mar") && precio > 0.00) {
-            return "Articulo " + articulo + " tiene un valor de RD$ " + random;
-        } else if (articulo.startsWith("tab") || precio >= 12000.00) {
-            return "Articulo " + articulo + " tiene un valor que sobrepasa 12,000.00. " + " El monto de RD$ " + random;
-        }else {
-            return "Ninguno de los escenarios pudo aplicar";
-        }
+    public static double ObtenerPrecioArticulo(String articulo) {
+        double precio = (Math.random() * 5000) + 100;
+        if (articulo.startsWith("A") || articulo.startsWith("D")) {
+            return precio;
+        } else if (articulo.startsWith("C") || articulo.startsWith("M")) {
+        return precio * 0.8;
+    } else {
+        return precio;
     }
+    }
+
+    public static void modificarArticulo(){
+        String nombreArticulo = obtenerNombreArticulo();
+        double precioArticulo = ObtenerPrecioArticulo(nombreArticulo);
+        if (precioArticulo >= 150 && precioArticulo <= 250) {
+            precioArticulo *= 1.02;
+        } else if (precioArticulo >= 250 && precioArticulo <= 500) {
+            precioArticulo *= 1.08;
+        } else {
+            precioArticulo *= 1.15;
+        }
+
+        System.out.println("Nuevo precio del articulo " + nombreArticulo + " es: " + precioArticulo);
+    }
+
 
     public static void imprimirinventario () {
         System.out.println("Ingrese su Nombre");

@@ -1,14 +1,12 @@
-import java.security.PublicKey;
 import java.util.Scanner;
 
 public class SimpleInventario {
-    public static void agregarArticulo(String s) {
-        System.out.println("Agregar un Articulo: ");
-        if (s.length() > 4) {
-            System.out.printf("Articulo agregado Exitosamente");
-        } else {
-            System.out.println("No se permite el Articulo");
+    static String[] articulo = new String[5];
+    public static void agregarArticulo() {
+        for (int i = 0; i < articulo.length; i++){
+            articulo[i] = obtenerNombreArticulo();
         }
+
 
     }
 
@@ -63,9 +61,14 @@ public class SimpleInventario {
         System.out.println("Bienvenido " + usuario);
         String articuloExistente = obtenerNombreArticulo();
         System.out.println("Articulo existente: " + articuloExistente);
+        System.out.println("Articulos registrados");
+        for (String articulo: articulo){
+            System.out.println(articulo);
+        }
     }
 
     public static void main (String[]args){
+        agregarArticulo();
         imprimirinventario();
     }
 }
